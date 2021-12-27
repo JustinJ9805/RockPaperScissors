@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let computerScore = 1;
+        let playerScore = 1;
+        
+
+        let letsPlay= function(usersChoice,computersChoice){
+            if(usersChoice === computersChoice){
+                return "tie!"
+            }
+            else if(usersChoice === "ROCK"){
+                if(computersChoice === "PAPER"){
+                    return "Computer Score:" + computerScore ++; 
+                }
+                else if(computersChoice === "SCISSORS"){
+                    return "Player Score:" + playerScore ++;
+                }
+            }
+
+            else if(usersChoice === "PAPER"){
+                if(computersChoice === "SCISSORS"){
+                    return "Computer Score:" + computerScore ++;
+                }
+                else if(computersChoice === "ROCK"){
+                    return "Player Score:" + playerScore ++;
+                }
+            }
+            else if(usersChoice === "SCISSORS"){
+                if(computersChoice === "ROCK"){
+                    return "Computer Score:" + computerScore ++;
+                }
+                else if(computersChoice === "PAPER"){
+                    return "Player Score:" + playerScore ++;
+                }
+            }
+        }
+    
+        for(let x = 0; x < 5; x++){
+            let usersChoice = prompt("ROCK, PAPER, OR SCISSORS?").toUpperCase();
+            console.log(usersChoice);
+
+            let computersChoice = Math.random();
+            if(computersChoice < .34){
+                computersChoice = "ROCK";
+            }
+            else if(computersChoice >=.34 && computersChoice<=.67){
+                computersChoice = "PAPER";
+            }
+            else{
+                computersChoice = "SCISSORS";
+            }
+            console.log(computersChoice);
+
+            console.log(letsPlay(usersChoice, computersChoice));
+        }
+
+        if(playerScore > computerScore){
+            
+            console.log("you win!");
+        }
+        else if (computerScore > playerScore) {
+            
+            console.log("you lose!")
+        }
+        else{
+            
+            console.log("tie!")
+        }
+        
+       
+    </script>
+    
+
+</body>
+</html>
