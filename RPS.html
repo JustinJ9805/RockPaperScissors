@@ -7,8 +7,119 @@
     <title>Document</title>
 </head>
 <body>
+    <button id= 'rock'>ROCK</button>
+    <button id= 'paper'>PAPER</button>
+    <button id= 'scissors'>SCISSORS</button>
+
+    <div id = 'results'>
+    </div>
     
     <script>
+        let userScore=0, computerScore=0;
+        document.getElementById('rock').onclick = letsPlay
+        document.getElementById('paper').onclick = letsPlay
+        document.getElementById('scissors').onclick = letsPlay
+
+        function letsPlay(){
+            
+            let usersChoice = this.id;
+            console.log(usersChoice);
+
+            let computersChoice = Math.random();
+            if(computersChoice < .34){
+                computersChoice = "rock";
+            }
+            else if(computersChoice >=.34 && computersChoice<=.67){
+                computersChoice = "paper";
+            }
+            else{
+                computersChoice = "scissors";
+            }
+            console.log(computersChoice);
+
+            //document.write("this prints of webpage") but deletes the rest
+            
+            if(usersChoice === computersChoice){
+                //console.log('tie')
+                document.getElementById('results').innerHTML = 'tie';
+            }
+            else if(usersChoice === "rock"){
+                if(computersChoice === "paper"){
+                    ++computerScore;
+                    if(computerScore == 5){
+                        document.getElementById('results').innerHTML = 'Computer Wins!'
+                        userScore = 0;
+                        computerScore = 0;
+                    }
+                    else{
+                        document.getElementById('results').innerHTML = "Computer Score: " + computerScore + ' Player Score: ' + userScore; 
+                    }
+                }
+                else if(computersChoice === "scissors"){
+                    ++userScore;
+                    if(userScore == 5){
+                        document.getElementById('results').innerHTML = "Player Wins!"
+                        userScore = 0;
+                        computerScore = 0;
+                    }
+                    else{
+                        document.getElementById('results').innerHTML = "Computer Score: " + computerScore + ' Player Score: ' + userScore; 
+                    }
+                }
+            }
+            else if(usersChoice === "paper"){
+                if(computersChoice === "scissors"){
+                    ++computerScore;
+                    if(computerScore == 5){
+                        document.getElementById('results').innerHTML = 'Computer Wins!'
+                        userScore = 0;
+                        computerScore = 0;
+                    }
+                    else{
+                        document.getElementById('results').innerHTML = "Computer Score: " + computerScore + ' Player Score: ' + userScore; 
+                    }
+                }
+                else if(computersChoice === "rock"){
+                    ++userScore;
+                    if(userScore == 5){
+                        document.getElementById('results').innerHTML = "Player Wins!"
+                        userScore = 0;
+                        computerScore = 0;
+                    }
+                    else{
+                        document.getElementById('results').innerHTML = "Computer Score: " + computerScore + ' Player Score: ' + userScore; 
+                    }
+                }
+            }
+            else if(usersChoice === "scissors"){
+                if(computersChoice === "rock"){
+                    ++computerScore;
+                    if(computerScore == 5){
+                        document.getElementById('results').innerHTML = 'Computer Wins!'
+                        userScore = 0;
+                        computerScore = 0;
+                    }
+                    else{
+                        document.getElementById('results').innerHTML = "Computer Score: " + computerScore + ' Player Score: ' + userScore; 
+                    }
+                }
+                else if(computersChoice === "paper"){
+                    ++userScore;
+                    if(userScore == 5){
+                        document.getElementById('results').innerHTML = "Player Wins!"
+                        userScore = 0;
+                        computerScore = 0;
+                    }
+                    else{
+                        document.getElementById('results').innerHTML = "Computer Score: " + computerScore + ' Player Score: ' + userScore; 
+                    }
+                }
+            }
+
+            
+        }
+        
+     /*
         let computerScore = 1;
         let playerScore = 1;
         
@@ -25,7 +136,6 @@
                     return "Player Score:" + playerScore ++;
                 }
             }
-
             else if(usersChoice === "PAPER"){
                 if(computersChoice === "SCISSORS"){
                     return "Computer Score:" + computerScore ++;
@@ -44,7 +154,7 @@
             }
         }
     
-        for(let x = 0; x < 5; x++){
+    //    for(let x = 0; x < 5; x++){
             let usersChoice = prompt("ROCK, PAPER, OR SCISSORS?").toUpperCase();
             console.log(usersChoice);
 
@@ -61,7 +171,7 @@
             console.log(computersChoice);
 
             console.log(letsPlay(usersChoice, computersChoice));
-        }
+    //    }
 
         if(playerScore > computerScore){
             
@@ -76,7 +186,7 @@
             console.log("tie!")
         }
         
-       
+       */
     </script>
     
 
